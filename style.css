@@ -1,0 +1,309 @@
+/* ==========================================================
+   Atlas & Ash — Landing Page
+   Smoky Ember palette. Bootstrap handles buttons + cards;
+   everything else is custom.
+   ========================================================== */
+
+/* ---------- Variables & Reset ---------- */
+:root {
+    --bg-dark: #1B1918;          /* Smoky Ash Black */
+    --surface-dark: #2D2825;     /* Charcoal Ash */
+    --neutral-muted: #8C827B;    /* Ash Brown / Greige */
+    --text-primary: #F4F1EA;     /* Soft Ash White */
+    --accent-secondary: #E05A36; /* Ember Orange */
+    --accent-primary: #C73E1D;   /* Crimson Red */
+
+    --radius: 8px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ---------- Bootstrap button overrides (framework + theme) ---------- */
+.btn-ember {
+    --bs-btn-color: var(--text-primary);
+    --bs-btn-bg: var(--accent-primary);
+    --bs-btn-border-color: var(--accent-primary);
+    --bs-btn-hover-color: var(--text-primary);
+    --bs-btn-hover-bg: var(--accent-secondary);
+    --bs-btn-hover-border-color: var(--accent-secondary);
+    --bs-btn-active-bg: var(--accent-secondary);
+    --bs-btn-active-border-color: var(--accent-secondary);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-outline-ember {
+    --bs-btn-color: var(--accent-secondary);
+    --bs-btn-border-color: var(--accent-secondary);
+    --bs-btn-hover-color: var(--text-primary);
+    --bs-btn-hover-bg: var(--accent-secondary);
+    --bs-btn-hover-border-color: var(--accent-secondary);
+    --bs-btn-active-bg: var(--accent-secondary);
+    --bs-btn-active-border-color: var(--accent-secondary);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ---------- Header & Navigation (Flexbox) ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.25rem 2rem;
+    background-color: var(--surface-dark);
+    border-bottom: 2px solid rgba(140, 130, 123, 0.2);
+}
+
+.logo {
+    color: var(--text-primary);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-secondary);
+}
+
+/* ---------- Shared section layout ---------- */
+main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-secondary);
+}
+
+/* ---------- Hero (Flexbox) ---------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 5rem 0;
+}
+
+.hero-text {
+    flex: 1 1 50%;
+}
+
+.hero-tagline {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--accent-secondary);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.hero h1 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.25rem, 6vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    color: var(--neutral-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero .status {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.hero-image {
+    flex: 1 1 40%;
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ---------- Features (CSS Grid) ---------- */
+.features {
+    padding-bottom: 5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Bootstrap .card themed for the dark palette */
+.feature-card {
+    --bs-card-bg: var(--surface-dark);
+    --bs-card-color: var(--text-primary);
+    --bs-card-border-color: transparent;
+    --bs-card-border-radius: var(--radius);
+    border-top: 4px solid var(--accent-secondary);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+}
+
+.feature-card .card-body {
+    padding: 2rem;
+}
+
+.feature-card .card-title {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.feature-card .card-text {
+    margin: 0;
+    color: var(--neutral-muted);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--surface-dark);
+    border-top: 1px solid rgba(140, 130, 123, 0.2);
+}
+
+.footer-info h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-info p,
+.copyright {
+    margin: 0 0 0.25rem;
+    color: var(--neutral-muted);
+    font-size: 0.95rem;
+}
+
+/* ---------- Responsive ---------- */
+/* Tablet: stack the hero, show cards two-wide feel via smaller gaps */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        height: 320px;
+    }
+}
+
+/* Mobile: stack header and put feature cards in a single column */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ==========================================================
+   AI REVIEW STEP
+   Suggestion: use clamp() for fluid font sizes instead of
+   fixed rem values (the old logo was a fixed 5.5rem).
+   Applied to: .logo and .hero h1 above.
+   ========================================================== */
